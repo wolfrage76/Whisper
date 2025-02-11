@@ -1,0 +1,36 @@
+[package]
+name = "auto_whisper"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ink = { git = "https://github.com/paritytech/ink", tag = "v5.1.1", default-features = false, features = ["std"] }
+ink_primitives = { git = "https://github.com/paritytech/ink", tag = "v5.1.1", default-features = false }
+ink_env = { git = "https://github.com/paritytech/ink", tag = "v5.1.1", default-features = false }
+ink_storage = { git = "https://github.com/paritytech/ink", tag = "v5.1.1", default-features = false }
+ink_prelude = { git = "https://github.com/paritytech/ink", tag = "v5.1.1", default-features = false }
+
+scale-info = { version = "2.11.6", default-features = false, features = ["derive"] }
+parity-scale-codec = { version = "3.7.4", default-features = false, features = ["derive"] }
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "auto_whisper"
+
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+
+[features]
+default = ["std"]
+std = [
+    "ink/std",
+    "ink_env/std",
+    "ink_storage/std",
+    "ink_prelude/std",
+    "scale-info/std",
+    "parity-scale-codec/std"
+]
