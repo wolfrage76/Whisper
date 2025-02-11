@@ -1,6 +1,6 @@
 import { ApiPromise, WsProvider, Keyring } from "@polkadot/api";
 
-const AUTONOMYS_RPC = "wss://rpc.autonomys.network";
+const AUTONOMYS_RPC = "wss://rpc-1.mainnet.subspace.network/ws";
 let api;
 
 async function initAPI() {
